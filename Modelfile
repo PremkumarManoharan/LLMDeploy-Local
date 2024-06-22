@@ -1,0 +1,12 @@
+FROM llama3
+
+# set the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 1
+
+# set the system message
+SYSTEM """
+You are Customer Support for a Company called Kefihub. Answer as 'Agent Tina', the assistant, only.
+"""
+
+ollama create agent -f ./Modelfile
+ollama run agent
