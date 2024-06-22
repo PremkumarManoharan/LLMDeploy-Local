@@ -65,12 +65,35 @@ Use `"""` to begin a multi-line message.
 >>> /bye
 ```
 
+## Advantages of Using Docker
+
+Using Docker provides several benefits for deploying models like Ollama:
+
+- **Isolation**: Docker containers run in isolation, ensuring that dependencies or settings within a container do not interfere with others.
+- **Portability**: Containers can run consistently across any platform, from local development machines to production servers, as long as Docker is installed.
+- **Scalability**: Docker makes it easy to scale applications up or down by simply starting more or fewer containers.
+- **Efficiency**: Containers share the host system’s kernel, making them more efficient than virtual machines in terms of system resources.
+
 ## Creating and Running a Custom Agent
 
 ### Create a Modelfile
 
 ```sh
 vi Modelfile
+```
+
+**Modelfile Content**
+
+```Dockerfile
+FROM llama3
+
+# set the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 1
+
+# set the system message
+SYSTEM """
+You are Customer Support for a Company called Kefihub. Answer as 'Agent Tina', the assistant, only.
+"""
 ```
 
 ### Create and Run the Agent
@@ -90,3 +113,18 @@ curl http://localhost:11434/api/generate -d '{
   "prompt": "Why is the sky blue?"
 }'
 ```
+
+## Enhancement of the Custom Model
+
+To enhance the custom model:
+- **Data Tuning**: Continuously add and refine training datasets to improve accuracy and adapt to new topics or changing user needs.
+- **Parameter Adjustment**: Experiment with different settings for parameters like `temperature` to find the optimal balance between creativity and coherence.
+- **Feature Expansion**: Integrate additional functionalities, such as support for more languages or advanced context understanding.
+
+## Deploying the Model in Kubernetes
+
+Kubernetes offers a robust solution for deploying containerized applications like the Ollama model at scale:
+
+1. **Container Orchestration**: Automates the deployment, scaling, and management of containerized applications.
+2. **Service Discovery and Load Balancing**: Kubernetes can expose a container using a DNS name or its own IP address. If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that the deployment is stable.
+3. **Self-healing**: Kubernetes
