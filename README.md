@@ -2,6 +2,8 @@
 
 LLMDeploy-Local provides a method to run the Ollama large language model using Docker. This guide will help you set up and interact with the model locally.
 
+[![Watch the video](https://img.youtube.com/vi/z_gv7HOLUmI/0.jpg)](https://www.youtube.com/watch?v=z_gv7HOLUmI)
+
 ## Running Ollama Using Docker
 
 ### Start the Docker Container
@@ -127,4 +129,29 @@ Kubernetes offers a robust solution for deploying containerized applications lik
 
 1. **Container Orchestration**: Automates the deployment, scaling, and management of containerized applications.
 2. **Service Discovery and Load Balancing**: Kubernetes can expose a container using a DNS name or its own IP address. If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that the deployment is stable.
-3. **Self-healing**: Kubernetes
+3. **Self-healing**: Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and only advertises them to clients when they are ready to serve.
+4. **Automated Rollouts and Rollbacks**: Kubernetes progressively rolls out changes to your application or its configuration, while monitoring application health to ensure it doesn’t kill all your instances at the same time. If something goes wrong, Kubernetes will rollback the change for you.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        ports:
+        - containerPort: 11434
+```
+
+This YAML file defines a deployment that manages three replicas of the Ollama container, ensuring high availability and load balancing. I will continue adding steps to deploy the custom model completely into a kubernetes cluster
