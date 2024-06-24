@@ -3,6 +3,7 @@
 LLMDeploy-Local provides a method to run the Ollama large language model using Docker. This guide will help you set up and interact with the model locally.
 
 [![Watch the video](https://img.youtube.com/vi/z_gv7HOLUmI/0.jpg)](https://www.youtube.com/watch?v=z_gv7HOLUmI)
+[![Watch the video](https://img.youtube.com/vi/hzrVUGvsgpo/0.jpg)](https://www.youtube.com/watch?v=hzrVUGvsgpo)
 
 ## Running Ollama Using Docker
 
