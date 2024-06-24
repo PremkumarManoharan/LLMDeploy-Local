@@ -60,7 +60,7 @@ def stream_chatbot_response(full_prompt):
             st.write("Error:", response.status_code)
             st.write(response.text)
 
-# Function to get the last 5 messages as context
+# Function to get the last 2 messages as context
 def get_context():
     context = ""
     for msg in st.session_state.messages[-2:]:

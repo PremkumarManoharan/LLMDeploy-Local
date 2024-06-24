@@ -162,7 +162,7 @@ This is a Streamlit-based chatbot application that streams responses from a back
 
 - Streaming responses from a backend API
 - Suggested questions to guide user interactions
-- Maintains the context of the last five messages for each new prompt
+- Maintains the context of the last two messages for each new prompt
 - User-friendly interface with a chat-like experience
 
 ## Prerequisites
