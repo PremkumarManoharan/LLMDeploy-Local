@@ -154,4 +154,58 @@ spec:
         - containerPort: 11434
 ```
 
-This YAML file defines a deployment that manages three replicas of the Ollama container, ensuring high availability and load balancing. I will continue adding steps to deploy the custom model completely into a kubernetes cluster
+# Streaming Chatbot with Suggested Questions
+
+This is a Streamlit-based chatbot application that streams responses from a backend API and includes suggested questions to guide user interactions. The chatbot also maintains the context of the last five messages for each new prompt to provide coherent responses.
+
+## Features
+
+- Streaming responses from a backend API
+- Suggested questions to guide user interactions
+- Maintains the context of the last five messages for each new prompt
+- User-friendly interface with a chat-like experience
+
+## Prerequisites
+
+- Python 3.7 or higher
+- Streamlit
+- Requests
+
+## Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/streaming-chatbot.git
+    cd streaming-chatbot
+    ```
+
+2. Install the required Python packages:
+
+    ```bash
+    pip install streamlit requests
+    ```
+
+## Usage
+
+1. Ensure your backend API is running and accessible. Update the API URL in the script if necessary.
+
+2. Save the chatbot code as `app.py`:
+
+3. Run the Streamlit application:
+
+    ```bash
+    streamlit run app.py
+    ```
+
+4. Open your web browser and navigate to `http://localhost:8501` to interact with the chatbot.
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Streamlit for providing an easy-to-use framework for creating web applications
+- The backend API service for generating chatbot responses
